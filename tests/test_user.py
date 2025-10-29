@@ -58,6 +58,7 @@ def test_create_get_and_delete_user():
     assert user_id is not None, "User ID not found in response"
     get_user = GetUser()
     get_user.get_user_by_id(user_id=user_id, headers=headers)
+    print(get_user.response_json)
     assert get_user.check_status_is_(200)
     assert get_user.verify_user_data(payload, user_id)
     delete_user = DeleteUser()
